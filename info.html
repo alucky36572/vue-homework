@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="info.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="index.html"><img src="logo-white.svg"></a>
+            </div>
+            <div class="nav-bg">
+                <div class="select-area">
+                    <ul>
+                        <li><a href="about.html">關於我們</a></li>
+                        <li><a href="news.html">最新消息</a></li>
+                        <li><a href="products.html">購買麵包</a></li>
+                        <li><a href="introduce-bread.html">認識麵包</a></li>
+                        <li><a href="qna.html">常見問題</a></li>
+                        <li><a href="#">
+                                <i class="fa-solid fa-cart-shopping" style="color: #401202;"></i>
+                            </a></li>
+                        <li><a href="#">
+                                <i class="fa-solid fa-user" style="color: #401202;"></i>
+                            </a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="logo-white.svg"></a>
+            </div>
+            <input type="checkbox" id="switch">
+            <div class="nav-icons">
+                <ul>
+                    <li><a href="#">
+                            <i class="fa-solid fa-cart-shopping" style="color: #401202;"></i>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="fa-solid fa-user" style="color: #401202;"></i>
+                        </a></li>
+                    <label for="switch">
+                        <li class="menu">
+                            <i class="fa-solid fa-bars" style="color: #401202;">
+                            </i>
+                        </li>
+                    </label>
+                </ul>
+            </div>
+            <div class="hb">
+                <ul>
+                    <li><a href="about.html">關於我們</a></li>
+                    <li><a href="news.html">最新消息</a></li>
+                    <li><a href="products.html">購買麵包</a></li>
+                    <li><a href="introduce-bread.html">認識麵包</a></li>
+                    <li><a href="qna.html">常見問題</a></li>
+                    <li class="social-media">
+                        <a href="#" class="fb">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="#" class="ig">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="banner">
+        </div>
+        <div class="head-bg">
+            <h1>認識麵包</h1>
+        </div>
+        <div class="wrap">
+            <div class="wrap-item">
+                <div class="bread-crumbs">
+                    <ul>
+                        <li><a href="index.html">首頁</a></li>
+                        <li><a>認識麵包</a></li>
+                    </ul>
+                </div>
+                <div id="app">
+                    <div v-for="(itm, index) in list" :key="index" class="item" :class="{ 'right-side': index % 2 !== 0 }">
+                        <!-- 表示如果 index 是奇數（% 是取餘數運算符，!== 是不等於的比較），則加上 'right-side' 這個 class；如果是偶數，則不加這個 class。 -->
+                        <div class="pic ">
+                            <img :src="itm.imgSrc">
+                        </div>
+                        <div class="text-info">
+                            <h4>{{ itm.type }}</h4>
+                            <p>{{itm.description1}}</p>
+                            <p>
+                            {{itm.description2}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <footer>
+                    <div class="footer-area">
+                        <a href="index.html" class="foot-logo">
+                            <img src="logo-64.svg">
+                        </a>
+                        <div class="foot-select">
+                            <ul>
+                                <li><a href="about.html">關於我們</a></li>
+                                <li><a href="news.html">最新消息</a></li>
+                                <li><a href="products.html">購買麵包</a></li>
+                                <li><a href="introduce-bread.html">認識麵包</a></li>
+                                <li><a href="qna.html">常見問題</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mobile-footer">
+                        <a href="index.html" class="foot-logo">
+                            <img src="logo-64.svg">
+                        </a>
+                        <div class="social-media">
+                            <a href="#" class="fb">
+                                <i class="fa-brands fa-facebook" ></i>
+                            </a>
+                            <a href="#" class="ig">
+                                <i class="fa-brands fa-instagram" ></i>
+                            </a>
+                        </div>
+                    </div>           
+                    <div class="copyright"><p>本網站為緯育TibaMe前端工程師班第88期學員專題作品平台僅供學習、展示之用。</p></div>
+                </footer>
+                <a href="#" id="top" class="to-top close">
+                    <i class="fa-solid fa-circle-chevron-up" style="color: #60222b;"></i>
+                </a>
+                <div class="media">
+                    <a href="#" class="fb">
+                        <i class="fa-brands fa-facebook" style="color: #60222b;"></i>
+                    </a>
+                    <a href="#" class="ig">
+                        <i class="fa-brands fa-instagram" style="color: #60222b;"></i>
+                    </a>
+                </div>
+            </div>
+
+
+                <script src="https://unpkg.com/vue@next"></script>
+                <script>
+
+
+                    Vue.createApp({
+                        data() {
+                            return {
+                                list:  [
+            {
+                type: "扭結麵包",
+                imgSrc: "images/introbuce/introduce-1.png",
+                description1: "扭結麵包以其獨特造型和口感受歡迎。製作過程中，麵糰經揉搓後分段，通過捏捻和結繩形成特殊形狀。此步驟賦予麵包視覺吸引力和層次感。酥脆的外皮是烘焙過程的結果，內部則保持柔軟。",
+                description2:"口味上有多樣選擇，可甜可鹹。扭結麵包不僅是美味的點心，也可搭配其他餐點。其獨特的造型和口感成為受歡迎的麵包品種。"
+            },
+            {
+                type: "德國酸種麵包",
+                imgSrc: "images/introbuce/introduce-2.png",
+                description1: "一種傳統歐洲麵包，以天然酵母發酵。麵包特色包括微酸口感、內部鬆軟滿布空洞的柔軟麵包心和香脆的褐色麵包皮。製作過程始將自然發酵的酵母和乳酸菌添加至主麵糰，經長時間發酵、成形、二次發酵後，最終進行烘焙。",
+                description2:"德國酸種麵包因獨特風味和傳統製作而受歡迎，同時被視為較為健康的麵包選擇，適合常健身、重視養生，以及消化功能脆弱的族群。"
+            },
+            {
+                type: "柏林人酸種麵包",
+                imgSrc: "images/introbuce/introduce-3.png",
+                description1: "源自柏林的經典麵包，以天然酵母長時間發酵而聞名。麵包充滿微酸風味，使用小麥、燕麥和麥麩等多穀物，提供豐富營養。烘焙後，麵包外皮金黃酥脆，內部保持柔軟，形成外酥內軟的口感。",
+                description2: "這種酸種製作方式不僅提高了麵包的保存性和消化性，還增強了營養價值，柏林人酸種麵包以獨特風味和營養價值在麵包愛好者中廣受歡迎，滿足了追求美味和健康的需求。"
+            },
+            {
+                type: "手拿棒",
+                imgSrc: "images/introbuce/introduce-4.png",
+                description1: "手拿棒為鄉村麵包，以天然酵母慢發酵製作。其成分簡單，包括小麥麵粉、水、酵母和鹽，保留了原味。鄉村麵包質地粗糙，含有穀粒和堅果。經過烘焙後，麵包外皮呈現金黃且脆，內部保持濕潤。以自然、健康為主的鄉村麵包深受注重營養價值和風味的消費者喜愛。",
+                description2:"日光小麥所為方便拿取食用而將麵包改良成長條、適合手拿的形狀，這也是手拿棒的名稱由來。"
+            }
+        ]
+                            };
+                        },
+                    }).mount('#app')
+                </script>
+
+</body>
+
+</html>
