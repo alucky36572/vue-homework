@@ -1,0 +1,81 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Frequently Asked Questions</title>
+        <!-- 引入 Vue.js -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <!-- 引入 Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <style>
+            .fa-minus, .fa-plus {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+    
+    <div id="app">
+        <div v-for="(item, index) in items" :key="index" class="item">
+            <div class="question">
+                <h5>{{ item.question }}</h5>
+                <div class="icon">
+                    <i class="fa-solid fa-minus minus" @click="toggleAnswer(index)" :style="faStyles"></i>
+                    <i class="fa-solid fa-plus plus" @click="toggleAnswer(index)" :style="faStyles"></i>
+                </div>
+            </div>
+            <div class="answer" v-if="item.showAnswer">
+                <p>{{ item.answer }}</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                faStyles: {
+                    color: '#60222b'
+                },
+                items: [
+                    {
+                        question: '購買麵包是否需要註冊成為會員？',
+                        answer: '是的，為了提供更便捷的購物體驗和個人化的服務，我們建議您在購買麵包前註冊成為我們的會員。成為會員將享有獨家優惠、追蹤訂單狀態，以及更快捷的結帳流程。我們還會不定期推出會員專屬活動，讓您更全面地體驗我們的服務。',
+                        showAnswer: false
+                    },
+                    {
+          question: '能否取消或修改訂單？',
+          answer: '您可以在訂單確認後的兩個小時內聯繫我們進行取消或修改。超過這個時間可能無法進行變更，請盡早聯繫我們以獲得協助。'
+        },
+        {
+          question: '訂購麵包後一般會幾天後到會貨呢?',
+          answer: '由於為個人製作花費時間較長，此外，根據您所在地區也會影響宅配時間長度，一般大概需要3至4天。我們將確保您在麵包新鮮烘焙後的最短時間內進行宅配，以確保品質和新鮮度。如果您有特殊日期的需求，請提前告知。'
+        },
+        {
+          question: '有哪些支付方式可以使用？',
+          answer: '接受信用卡、網路轉帳、行動支付等多種支付方式，以確保您方便快捷地完成付款。'
+        },
+        {
+          question: '有提供素食或特殊口味的麵包選擇嗎？',
+          answer: '是的，我們在菜單中標示有素食或特殊口味的選項。您可以在網站上查看詳細的產品資訊。此外，為了顧及客戶的健康與飲食需求，我們的網站上同樣提供了每款麵包的過敏成分資訊。請在選購前仔細閱讀，以確保您的飲食需求和過敏狀況得到適切照顧。'
+        },
+        {
+          question: '如何知道最新消息？',
+          answer: '網站有最新消息可以瀏覽，此外〈日光小麥所〉有Instagram和Facebook，歡迎有興趣的顧客追蹤。 IG：@NikkoBakery  FB：日光小麥所 可於網站左方點選icon連結'
+        }
+                ]
+            },
+            methods: {
+                toggleAnswer(index) {
+                    this.items[index].showAnswer = !this.items[index].showAnswer;
+                }
+            }
+        });
+    </script>
+    
+    </body>
+    </html>
+    
+
